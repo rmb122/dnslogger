@@ -13,7 +13,10 @@ def analysisDnsQuery(data):
             domain += data[ini + 1:ini + lon + 1] + b'.'
             ini += lon + 1
             lon = data[ini]
-    reqType = data[ini + 2]
+        reqType = data[ini + 2]
+    else: # Not a standard query
+        domain, reqType = "", 0x0
+    
     return domain, reqType
 
 
